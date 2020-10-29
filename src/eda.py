@@ -30,7 +30,7 @@ def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
     x = df.iloc[:, column1]
     y = df.iloc[:,column2]
     sns.barplot(x,y,palette='rocket',edgecolor=sns.color_palette('dark',10))
-    plt.xticks(rotation=90)
+    plt.xticks(rotation=90, fontsize=13)
     ax.set_xlabel(xlab, fontsize=14)
     ax.set_ylabel(ylab, fontsize=14)
     ax.set_title(title, fontsize=16)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     ''' Plot 1: Amount of Terrorist Attacks Over Time'''
     attack_time = groupby_func(terror, 'Year', 'Event_ID', 'count')
     #  Creates dataframe that shows the count of attacks for each year
-    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Amount of Attacks Over Time", '../images/Attacks_Over_Time.png' )
+    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Number of Attacks Over Time", '../images/Attacks_Over_Time.png' )
     
     ''' Plot 2: Amount of Fatalities Over Time'''
     # death_time = groupby_func(terror, 'Year', 'Fatalities', 'sum')
@@ -75,9 +75,6 @@ if __name__ == '__main__':
     ''' Plot 3: Amount of Fatalities Over Time'''
 
     plt.show()
-
-
-    '
     
 
 
