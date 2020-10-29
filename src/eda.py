@@ -31,10 +31,10 @@ def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
     y = df.iloc[:,column2]
     sns.barplot(x,y,palette='rocket',edgecolor=sns.color_palette('dark',10))
     plt.xticks(rotation=90, fontsize=13)
-    ax.set_xlabel(xlab, fontsize=14)
-    ax.set_ylabel(ylab, fontsize=14)
-    ax.set_title(title, fontsize=16)
-    plt.savefig(save_loc)
+    ax.set_xlabel(xlab, fontsize=15)
+    ax.set_ylabel(ylab, fontsize=15)
+    ax.set_title(title, fontsize=18)
+    plt.savefig(save_loc, bbox_inches = 'tight')
 
 
 
