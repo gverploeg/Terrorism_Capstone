@@ -23,7 +23,7 @@ def groupby_func(df, group, agg_column, modifier = 'sum'):
     elif modifier == 'count':
         return df.groupby(group)[agg_column].count().reset_index()
 
-def plots_over_time(df, column1, column2, xlab, ylab, title):
+def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
     ''' Plot different variables over time: Overall Dttacks, Deaths '''
     plt.style.use('ggplot')
     fig, ax = plt.subplots(1, figsize=(15,6))
@@ -34,6 +34,8 @@ def plots_over_time(df, column1, column2, xlab, ylab, title):
     ax.set_xlabel(xlab, fontsize=14)
     ax.set_ylabel(ylab, fontsize=14)
     ax.set_title(title, fontsize=16)
+    plt.savefig(save_loc)
+
 
 
 
@@ -63,14 +65,19 @@ if __name__ == '__main__':
     ''' Plot 1: Amount of Terrorist Attacks Over Time'''
     attack_time = groupby_func(terror, 'Year', 'Event_ID', 'count')
     #  Creates dataframe that shows the count of attacks for each year
-    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Amount of Attacks Over Time" )
+    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Amount of Attacks Over Time", '../images/Attacks_Over_Time.png' )
     
     ''' Plot 2: Amount of Fatalities Over Time'''
-    death_time = groupby_func(terror, 'Year', 'Fatalities', 'sum')
+    # death_time = groupby_func(terror, 'Year', 'Fatalities', 'sum')
     #  Creates dataframe that shows the sum of deaths for each year
-    plots_over_time(death_time, 0,1, "Year", "Number of Deaths", "Amount of Deaths Over Time" )
+    # plots_over_time(death_time, 0,1, "Year", "Number of Deaths", "Amount of Deaths Over Time" )
 
     ''' Plot 3: Amount of Fatalities Over Time'''
 
     plt.show()
+
+
+    '
+    
+
 
