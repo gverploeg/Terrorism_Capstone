@@ -37,11 +37,11 @@ Here, we can see both deaths and attacks have been increasing over time, with bo
 
 | Country                     | Fatalities |
 |-----------------------------|------------|
-| Iraq                        | 78591      |
-| Afghanistan                 | 39384      |
-| Pakistan                    | 23849      |
-| Nigeria                     | 22682      |
-| India                       | 19865      |
+| Iraq                        | 78,591      |
+| Afghanistan                 | 39,384      |
+| Pakistan                    | 23,849      |
+| Nigeria                     | 22,682      |
+| India                       | 19,865      |
 
 
 ### Top 20 Countries with the Highest Terrorism Fatalities
