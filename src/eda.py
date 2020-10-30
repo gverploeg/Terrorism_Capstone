@@ -37,7 +37,8 @@ def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
     fig, ax = plt.subplots(1, figsize=(15,6))
     x = df.iloc[:, column1]
     y = df.iloc[:,column2]
-    sns.barplot(x,y,palette='rocket',edgecolor=sns.color_palette('dark',10))
+    # sns.barplot(x,y,palette='rocket',edgecolor=sns.color_palette('dark',10))
+    sns.barplot(x,y,color="peru")
     plt.xticks(rotation=90, fontsize=13)
     ax.set_xlabel(xlab, fontsize=15)
     ax.set_ylabel(ylab, fontsize=15)
@@ -56,6 +57,24 @@ def fatality_plots_by_factors(df, column1, column2, ylab, title, save_loc):
     ax.set_ylabel(ylab, fontsize=15)
     ax.set_title(title, fontsize=18)
     fig.tight_layout()
+    plt.savefig(save_loc, bbox_inches = 'tight')
+
+
+def fatality_plots_with_groups(df1, df2, title, save_loc):
+    plt.style.use('ggplot')
+    fig, ax = plt.subplots(1, figsize=(15, 6))
+    bar_width = 0.2
+    x1 = df1.iloc[:, 0]
+    x2 = df2.iloc[:,0]
+    y1 = df1.iloc[:,1]
+    y2 = df2.iloc[:,1]
+    ax.bar(x1, y1, color='royalblue', width=bar_width, align='edge', label='1-2 Deaths')
+    ax.bar(x2, y2, color='tomato', width=-bar_width, align='edge', label='More than 2 Deaths')
+    plt.xticks(rotation=45, fontsize=14, horizontalalignment='center')
+    ax.set_ylabel("Number of Attacks", fontsize=15)
+    ax.set_title(title, fontsize=18)
+    fig.tight_layout()
+    ax.legend()
     plt.savefig(save_loc, bbox_inches = 'tight')
 
 
@@ -96,13 +115,44 @@ if __name__ == '__main__':
 
 
     '''Plot 3: Distribution of Deaths by Region'''
-    region_overall_death = groupby_func(terror, 'Region', 'Fatalities', 'sum').sort_values('Fatalities', ascending=False)
-    fatality_plots_by_factors(region_overall_death, 0, 1, "Number of Deaths", "Number of Terrorist Fatalities by Region", '../images/total_region_deaths.png')
+    # region_overall_death = groupby_func(terror, 'Region', 'Fatalities', 'sum').sort_values('Fatalities', ascending=False)
+    # fatality_plots_by_factors(region_overall_death, 0, 1, "Number of Deaths", "Number of Terrorist Fatalities by Region", '../images/total_region_deaths.png')
 
+    '''Plot 4: Distribution of Deaths by Type'''
+    # type_overall_death = groupby_func(terror, 'AttackType', 'Fatalities', 'sum').sort_values('Fatalities', ascending=False)
+    # fatality_plots_by_factors(type_overall_death, 0, 1, "Number of Deaths", "Number of Terrorist Fatalities by Type of Attack", '../images/total_type_deaths.png')
 
+    '''Plot 5: Distribution of Deaths by Target'''
+    # type_overall_death = groupby_func(terror, 'Target_Type', 'Fatalities', 'sum').sort_values('Fatalities', ascending=False)
+    # fatality_plots_by_factors(type_overall_death, 0, 1, "Number of Deaths", "Number of Terrorist Fatalities by Target", '../images/total_target_deaths.png')
 
 
     ''' Create dataframes for Fatalities Groupings'''
+    ''' Creating two: one for 1-2 and another for greater than 2'''
+    terror_1_2= fatalities_between_two_amounts(terror, 1, 2)
+    terror_gtr_2 = fatalities_greater_than(terror, 3)
+
+    ''' Plot 6: Region with fatality groups'''
+    region_drop = ['Australasia & Oceania', 'Central Asia', 'East Asia' ]
+    region_12 = terror_1_2.groupby('Region')['Event_ID'].count().to_frame().drop(region_drop).reset_index().sort_values('Event_ID', ascending=False)
+    region_more = terror_gtr_2.groupby('Region')['Event_ID'].count().to_frame().drop(region_drop).reset_index().sort_values('Event_ID', ascending=False)
+
+    # fatality_plots_with_groups(region_12, region_more, 'Number of Terrorist Attacks by Region', '../images/region_groups.png')
+
+    ''' Plot 7: Type with fatality groups'''
+    type_drops = ['Unarmed Assault', 'Hostage Taking (Barricade Incident)', 'Hijacking', 'Facility/Infrastructure Attack']
+    type_12 = terror_1_2.groupby('AttackType')['Event_ID'].count().to_frame().drop(type_drops).reset_index().sort_values('Event_ID', ascending=False)
+    type_more = terror_gtr_2.groupby('AttackType')['Event_ID'].count().to_frame().drop(type_drops).reset_index().sort_values('Event_ID', ascending=False)
+
+    # fatality_plots_with_groups(type_12, type_more, 'Number of Terrorist Attacks by Type', '../images/type_groups.png')
+    
+    ''' Plot 8: Target with fatality groups'''
+    target_drops = ['Abortion Related','Food or Water Supply', 'Telecommunication', 'Utilities', 'Other', 'Unknown', 'Maritime', 'Violent Political Party', 
+    'NGO', 'Government (Diplomatic)', 'Tourists']
+    target_12 = terror_1_2.groupby('Target_Type')['Event_ID'].count().to_frame().drop(target_drops).reset_index().sort_values('Event_ID', ascending=False)
+    target_more = terror_gtr_2.groupby('Target_Type')['Event_ID'].count().to_frame().drop(target_drops).reset_index().sort_values('Event_ID', ascending=False)
+
+    # fatality_plots_with_groups(target_12, target_more, 'Number of Terrorist Attacks by Target', '../images/target_groups.png')
 
 
 
