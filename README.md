@@ -63,8 +63,8 @@ When one thinks of terrorism, they often think of the large group killings that 
 |--------------------|-------------------|------------------|
 | 1-2 Deaths         | 50,906            | 61%              |
 | 3-9 Deaths         | 23,393            | 28%              |
-| 10-29 Deaths       | 7293              | 9%               |
-| >= 30 Deaths       | 1937              | 2%               |
+| 10-29 Deaths       | 7,293              | 9%               |
+| >= 30 Deaths       | 1,937              | 2%               |
 
 
 ![](images/total_target_deaths.png)
