@@ -102,7 +102,7 @@ From this small study, I've gained a greater understanding of Terrorism Fataliti
 
 
 
-One possible future direciton is to use a World Bank [Dataset](https://datacatalog.worldbank.org/dataset/world-development-indicators/) on world development indicators to see if factors such as type of government, wealth, or happiness correlate to an increase in terrorism fatalities. Perform linear regression to show the relationship between the two.
+One possible future direction is to use a World Bank [Dataset](https://datacatalog.worldbank.org/dataset/world-development-indicators/) on world development indicators to see if factors such as type of government, wealth, or happiness correlate to an increase in terrorism fatalities. Perform linear regression to show the relationship between the two.
 
 
 ## References:
