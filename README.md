@@ -74,7 +74,7 @@ When one thinks of terrorism, they often think of the large group killings that 
 
 ![](images/total_type_deaths.png)
 ![](images/type_groups.png)
-**_Figures 6 & 7: Types by Top Fatalities_**
+**_Figures 8 & 9: Types by Top Fatalities_**
 
 Definitions:
 * Assassination: Act whose primary objective is to kill one or more specific, prominent individuals
