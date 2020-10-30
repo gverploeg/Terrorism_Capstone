@@ -25,7 +25,7 @@ When looking at this data and its 135 columns, many variables are left empty su
 | 1.97001E+11 | 1970 | 1     | 8   | Italy         | Western Europe | Hijacking         | Flight 802 Boeing 707 | 0          | 3       | NaN                                               | Unknown | Airports & Aircraft | Firearms    | NaN    |
 
 ## Approach and Goal:
-* Explore how the amount of people killed are influenced by country/region, target, and attack type
+* Explore how the amounts of people killed are influenced by country/region, target, and attack type
 
 
 
