@@ -33,7 +33,7 @@ When looking at this data and its 135 columns, many variables are left empty su
 ![](images/Deaths_Over_Time.png)
 **_Figures 1 & 2: Number of attacks and number of deaths from 1970 to 2017_**
 
-Here, we can see both deaths and attacks have been increasing over time, with both peaking in 2014. Additionally, both rose sharply after 2000. However we do see some decline in recent years. After analysing the dataset and conducting outside research, the decrease in both activities and fatalities is credited toward the improving situation in Iraq and success in fighting ISIS and Boko Haram. In total, there have been over 414,000 documented deaths from terrorism.
+Here, we can see both deaths and attacks have been increasing over time, with both peaking in 2014. Additionally, both rose sharply after 2010. However we do see some decline in recent years. After analysing the dataset and conducting outside research, the decrease in both activities and fatalities is credited toward the improving situation in Iraq and success in fighting ISIS and Boko Haram. In total, there have been over 414,000 documented deaths from terrorism.
 
 | Country                     | Fatalities |
 |-----------------------------|------------|
