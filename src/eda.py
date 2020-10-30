@@ -10,6 +10,14 @@ def fatalities_greater_than(df, num):
     terror_gtr = df[df['Fatalities'] >= num]
     return terror_gtr
 
+def fatalities_between_two_amounts(df, num1, num2):
+    '''
+    Create dataframes where fatalities are between two parameters
+    '''
+    terror_between = df[(df['Fatalities'] >= num1) & (df['Fatalities'] <=num2)]
+    return terror_between
+
+
 def groupby_func(df, group, agg_column, modifier = 'sum'):
     '''
     Create different groupby dataframes with different aggregate functions
@@ -24,7 +32,7 @@ def groupby_func(df, group, agg_column, modifier = 'sum'):
         return df.groupby(group)[agg_column].count().reset_index()
 
 def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
-    ''' Plot different variables over time: Overall Dttacks, Deaths '''
+    ''' Plot different variables over time: Overall Attacks, Deaths '''
     plt.style.use('ggplot')
     fig, ax = plt.subplots(1, figsize=(15,6))
     x = df.iloc[:, column1]
@@ -32,6 +40,19 @@ def plots_over_time(df, column1, column2, xlab, ylab, title, save_loc):
     sns.barplot(x,y,palette='rocket',edgecolor=sns.color_palette('dark',10))
     plt.xticks(rotation=90, fontsize=13)
     ax.set_xlabel(xlab, fontsize=15)
+    ax.set_ylabel(ylab, fontsize=15)
+    ax.set_title(title, fontsize=18)
+    fig.tight_layout()
+    plt.savefig(save_loc, bbox_inches = 'tight')
+
+def fatality_plots_by_factors(df, column1, column2, ylab, title, save_loc):
+    ''' Plot different factors against fatalities'''
+    plt.style.use('ggplot')
+    fig, ax = plt.subplots(1, figsize=(15,6))
+    x = df.iloc[:, column1]
+    y = df.iloc[:,column2]
+    sns.barplot(x,y,color="darkmagenta")
+    plt.xticks(rotation=45, fontsize=12, horizontalalignment='right')
     ax.set_ylabel(ylab, fontsize=15)
     ax.set_title(title, fontsize=18)
     fig.tight_layout()
@@ -65,17 +86,28 @@ if __name__ == '__main__':
 
     ''' Plot 1: Amount of Terrorist Attacks Over Time'''
     attack_time = groupby_func(terror, 'Year', 'Event_ID', 'count')
-    #  Creates dataframe that shows the count of attacks for each year
-    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Number of Attacks Over Time", '../images/Attacks_Over_Time.png' )
+    ##  Creates dataframe that shows the count of attacks for each year
+    plots_over_time(attack_time, 0,1, "Year", "Number of Attacks", "Number of Terrorist Attacks Over Time", '../images/Attacks_Over_Time.png' )
     
     ''' Plot 2: Amount of Fatalities Over Time'''
-    # death_time = groupby_func(terror, 'Year', 'Fatalities', 'sum')
-    #  Creates dataframe that shows the sum of deaths for each year
-    # plots_over_time(death_time, 0,1, "Year", "Number of Deaths", "Amount of Deaths Over Time" )
+    death_time = groupby_func(terror, 'Year', 'Fatalities', 'sum')
+    ##  Creates dataframe that shows the sum of deaths for each year
+    plots_over_time(death_time, 0,1, "Year", "Number of Deaths", "Number of Terrorist Fatalities Over Time", '../images/Deaths_Over_Time.png')
 
-    ''' Plot 3: Amount of Fatalities Over Time'''
 
-    plt.show()
+    '''Plot 3: Distribution of Deaths by Region'''
+    region_overall_death = groupby_func(terror, 'Region', 'Fatalities', 'sum').sort_values('Fatalities', ascending=False)
+    fatality_plots_by_factors(region_overall_death, 0, 1, "Number of Deaths", "Number of Terrorist Fatalities by Region", '../images/total_region_deaths.png')
+
+
+
+
+    ''' Create dataframes for Fatalities Groupings'''
+
+
+
+
+    # plt.show()
     
 
 

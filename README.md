@@ -1,3 +1,5 @@
+![](images/cover_photo.jpg)
+
 
 # Terrorism Fatalities and their Influencing Factors
 ## Background:
@@ -21,16 +23,19 @@ When looking at this data and its 135 columns, many variables are left empty su
 |-------------|------|-------|-----|---------------|----------------|-------------------|-----------------------|------------|---------|---------------------------------------------------|---------|---------------------|-------------|--------|
 | 1.97001E+11 | 1970 | 1     | 2   | United States | North America  | Bombing/Explosion | Edes Substation       | 0          | 0       | 1/2/1970: Unknown perpetrators detonated explo... | Black Nationalists | Utilities           | Explosives  | NaN    |
 | 1.97001E+11 | 1970 | 1     | 8   | Italy         | Western Europe | Hijacking         | Flight 802 Boeing 707 | 0          | 3       | NaN                                               | Unknown | Airports & Aircraft | Firearms    | NaN    |
-
+_Table 1: Modified dataset, showing first two rows_
 ## Approach and Goal:
 * Explore how the amount of people killed are influenced by country/region, target, and attack type
 
 
 
 ![](images/Attacks_Over_Time.png)
+![](images/Deaths_Over_Time.png)
+_Figures 1 & 2: Number of attacks and number of deaths from 1970 to 2017_
 
 
 
+![](images/total_region_deaths.png)
 
 | Country                     | Fatalities |
 |-----------------------------|------------|
@@ -39,3 +44,5 @@ When looking at this data and its 135 columns, many variables are left empty su
 | Pakistan                    | 23849      |
 | Nigeria                     | 22682      |
 | India                       | 19865      |
+
+![](images/terror_map.png)
