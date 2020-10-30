@@ -11,7 +11,7 @@ Following the 9/11 attacks, research to study terrorism and militant groups incr
 
 ## Data:
 
-This data is obtained from The Global Terrorism Database [(GTD)](https://start.umd.edu/gtd/) at the University of Maryland. It records terrorist attacks around the world from 1970 through 2017. There are over 181,000 records and 135 columns such as date, location, number killed, number wounded, attack type, and target type.
+This data is obtained from The Global Terrorism Database [(GTD)](https://start.umd.edu/gtd/) at the University of Maryland. It records terrorist attacks around the world from 1970 through 2017. There are over 183,000 records and 135 columns such as date, location, number killed, number wounded, attack type, and target type.
 
 * Includes information on more than 75,000 bombings, 17,000 assassinations, and 9,000 kidnappings since 1970
 * Includes information on at least 45 variables for each case, with more recent incidents including information on more than 120 variables
@@ -33,8 +33,7 @@ When looking at this data and its 135 columns, many variables are left empty su
 ![](images/Deaths_Over_Time.png)
 **_Figures 1 & 2: Number of attacks and number of deaths from 1970 to 2017_**
 
-Here, we can see both deaths and attacks have been increasing over time, with both peaking in 2014. Additionally, both rose sharply after 2000. However we do see some decline in recent years. After analysing the dataset and conducting outside research, the decrease in both activities and fatalities is credited toward the improving situation in Iraq and success in fighting ISIS and Boko Haram. 
-
+Here, we can see both deaths and attacks have been increasing over time, with both peaking in 2014. Additionally, both rose sharply after 2000. However we do see some decline in recent years. After analysing the dataset and conducting outside research, the decrease in both activities and fatalities is credited toward the improving situation in Iraq and success in fighting ISIS and Boko Haram. In total, there have been over 414,000 documented deaths from terrorism.
 
 | Country                     | Fatalities |
 |-----------------------------|------------|
@@ -45,11 +44,11 @@ Here, we can see both deaths and attacks have been increasing over time, with bo
 | India                       | 19865      |
 
 
-### Top 15 Countries with the Highest Terrorism Fatalities
+### Top 20 Countries with the Highest Terrorism Fatalities
 ![](images/terror_map.png)
 **_Figure 3: Folium Countries by Top Fatalities_**
 
-Iraq has the highest fatalities of terrorist attacks by a significant margin, almost double that of Afganistan. Countries like Iraq and Afganistan have experienced recent massive increases, while others have a long history, like India and Pakistan.
+Iraq has the highest fatalities of terrorist attacks by a significant margin, almost double that of Afganistan. Countries such as Iraq and Afganistan have experienced recent massive increases, while others have a long history, such as India and Pakistan.
 
 ### Fatalities Breakdown
 ![](images/total_region_deaths.png)
@@ -59,6 +58,13 @@ Iraq has the highest fatalities of terrorist attacks by a significant margin, al
 When one thinks of terrorism, they often think of the large group killings that make the newspaper headlines, when it is in fact vastly more common in smaller numbers. In the following analysis, I wanted to look at two groups of fatalities compared with different variables in the dataset: region, type of terrorism, and the terrorist's target. For my fatality groups, I broke them down into death between 1 and 2 and the other 3 or greater. 
 * Attacks with 1-2 deaths account for 50,906 - 61% of all the fatality attacks
 * Attacks with 3 or more deaths account for 32,623 - 39% of all the fatality attacks
+
+| Fatality Breakdown | Amount of Attacks | Percent of Total |
+|--------------------|-------------------|------------------|
+| 1-2 Deaths         | 50,906            | 61%              |
+| 3-9 Deaths         | 23,393            | 28%              |
+| 10-29 Deaths       | 7293              | 9%               |
+| >= 30 Deaths       | 1937              | 2%               |
 
 
 ![](images/total_target_deaths.png)
@@ -89,7 +95,11 @@ From this small study, I've gained a greater understanding of Terrorism Fataliti
 
 * Armed Assault and bombing result in the highest amount of fatalities
 
-* Contrary to my initial belief, Terrorist attacks are significantly more common with smaller fatality levels. More than half of all fatality attacks result in only 1-2 deaths
+* Contrary to my initial belief, the majority of terrorist attacks result in small fatality numbers. More than half of all fatality attacks result in only 1-2 deaths. 
+
+
+
+
 
 
 One possible future direciton is to use a World Bank [Dataset](https://datacatalog.worldbank.org/dataset/world-development-indicators/) on world development indicators to see if factors such as type of government, wealth, or happiness correlate to an increase in terrorism fatalities. Perform linear regression to show the relationship between the two.
